@@ -1,0 +1,66 @@
+<!-- src/app/dashboard/dashboard.component.html -->
+<div class="flex min-h-screen bg-gray-100">
+
+  <!-- Conteúdo principal -->
+  <main class="flex-1 p-10">
+    <!-- Informações do usuário -->
+    <div class="flex items-center gap-4 mb-8">
+      <div class="bg-white rounded-full w-16 h-16 flex items-center justify-center shadow">
+        <span class="text-2xl font-bold text-blue-700">{{ user[0] }}</span>
+      </div>
+      <div>
+        <h3 class="text-xl font-semibold text-gray-800">{{ user }}</h3>
+      </div>
+    </div>
+
+    <!-- Licença de Mensagens -->
+    <div class="bg-white p-6 rounded-lg shadow text-center mb-6">
+      <h4 class="text-lg font-bold text-gray-700">Licença de Mensagens</h4>
+      <div class="grid grid-cols-4 gap-4 mt-4">
+        <div>
+          <span class="block text-gray-500">Total (Mensal)</span>
+          <span class="text-xl font-bold text-blue-700">{{ licencaMensagens.total | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Utilizado</span>
+          <span class="text-xl font-bold text-green-700">{{ licencaMensagens.utilizado | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Restante</span>
+          <span class="text-xl font-bold text-red-700">{{ licencaMensagens.restante | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Porcentagem de Uso</span>
+          <span class="text-xl font-bold text-purple-700">
+            {{ getPorcentagemUsoMensagens() }}%
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Licença de Usuário -->
+    <div class="bg-white p-6 rounded-lg shadow text-center mb-6">
+      <h4 class="text-lg font-bold text-gray-700">Licença de Usuário</h4>
+      <div class="grid grid-cols-4 gap-4 mt-4">
+        <div>
+          <span class="block text-gray-500">Total</span>
+          <span class="text-xl font-bold text-blue-700">{{ licencaUsuarios.total | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Utilizado</span>
+          <span class="text-xl font-bold text-green-700">{{ licencaUsuarios.utilizado | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Restante</span>
+          <span class="text-xl font-bold text-red-700">{{ licencaUsuarios.restante | number:'1.0-0' }}</span>
+        </div>
+        <div>
+          <span class="block text-gray-500">Porcentagem de Uso</span>
+          <span class="text-xl font-bold text-purple-700">
+            {{ getPorcentagemUsoUsuarios() }}%
+          </span>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

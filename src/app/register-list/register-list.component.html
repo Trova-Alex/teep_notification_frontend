@@ -1,0 +1,19 @@
+<div class="min-h-screen w-full bg-white flex flex-col items-center justify-start p-8">
+  <div class="w-full max-w-3xl flex justify-between items-center mb-8">
+    <h2 class="text-3xl font-bold mb-8 text-blue-700 w-full text-left">Lista de Cadastros</h2>
+  </div>
+  <ul class="w-full max-w-3xl">
+    <li *ngFor="let cadastro of cadastros" class="flex items-center py-6 border-b last:border-b-0">
+      <span class="material-icons text-blue-600 text-4xl mr-6">{{ cadastro.icone }}</span>
+      <div class="flex-1">
+        <strong class="block text-xl text-gray-800">{{ cadastro.nome }}</strong>
+        <p class="text-gray-500 text-base">{{ cadastro.descricao }}</p>
+      </div>
+      <button
+        (click)="abrirCadastro(cadastro.link)"
+        class="ml-6 bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded transition">
+        Abrir
+      </button>
+    </li>
+  </ul>
+</div>

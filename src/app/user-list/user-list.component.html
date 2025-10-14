@@ -1,0 +1,45 @@
+<div class="min-h-screen w-full bg-white flex flex-col items-center justify-start p-8">
+  <div class="w-full max-w-3xl flex justify-between items-center mb-8">
+    <h2 class="text-3xl font-bold text-blue-700">Usuários Cadastrados</h2>
+    <ng-container *ngIf="licencaUsuarios.restante > 0; else semLicenca">
+      <button
+        (click)="adicionarUsuario()"
+        class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded transition"
+      >
+        Adicionar Usuário
+      </button>
+    </ng-container>
+    <ng-template #semLicenca>
+      <div class="flex flex-col items-start">
+        <button
+          class="bg-gray-400 text-white px-6 py-3 rounded transition cursor-not-allowed"
+          disabled
+        >
+          Adicionar Usuário
+        </button>
+        <span class="mt-2 text-red-600 font-semibold">Não há mais licenças para usuário</span>
+      </div>
+    </ng-template>
+  </div>
+  <ul class="w-full max-w-3xl">
+    <li *ngFor="let usuario of usuarios" class="flex items-center py-6 border-b last:border-b-0">
+      <div class="flex-1">
+        <strong class="block text-xl text-gray-800">{{ usuario.name }}</strong>
+        <p class="text-gray-500 text-base">{{ usuario.email }}</p>
+        <p class="text-gray-500 text-base">{{ usuario.id }}</p>
+      </div>
+      <button
+        (click)="editarUsuario(usuario)"
+        class="ml-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded transition"
+      >
+        Editar
+      </button>
+      <button
+        (click)="excluirUsuario(usuario)"
+        class="ml-2 bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
+      >
+        Excluir
+      </button>
+    </li>
+  </ul>
+</div>
