@@ -11,7 +11,7 @@ import { Company } from '../models/company';
   providedIn: 'root'
 })
 export class DjangoApiService {
-  private apiUrl = environment.djangoApiUrl;
+  private apiUrl: string = `${window.location.protocol}//${window.location.hostname}:8000/production/api/`;
 
   constructor(private http: HttpClient) {}
 
