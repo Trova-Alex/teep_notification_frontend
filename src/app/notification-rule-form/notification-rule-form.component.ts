@@ -140,7 +140,7 @@ export class NotificationRuleFormComponent implements OnInit {
     }
   }
 
-  salvarRegra(goBakk: boolean = false) {
+  salvarRegra(goBack: boolean = false) {
     this.regra.reason__codes = this.paresStopResource.map(
       p => `${p.machineCode}--${p.stopReasonCode}`
     );
@@ -152,7 +152,7 @@ export class NotificationRuleFormComponent implements OnInit {
       this.firestoreService.updateNotificationRule(companyUid!, this.regra.id, this.regra)
         .then(() => {
           console.log('Regra atualizada com sucesso!');
-          if (goBakk) {
+          if (goBack) {
             window.history.back();
           }
         })
@@ -165,7 +165,7 @@ export class NotificationRuleFormComponent implements OnInit {
         .then(document => {
           console.log(document);
           console.log('Regra salva com sucesso!');
-          if (goBakk) {
+          if (goBack) {
             window.history.back();
           }
         })
